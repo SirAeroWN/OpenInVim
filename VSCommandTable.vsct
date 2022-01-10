@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <Extern href="stdidcmd.h"/>
+  <Extern href="vsshlids.h"/>
+  <Include href="KnownImageIds.vsct"/>
+  <Include href="VSGlobals.vsct"/>
+
+  <Commands package="OpenInVim">
+    <Groups>
+      <Group guid="OpenInVim" id="OpenInVimMenuGroup" priority="0x0600">
+        <Parent guid="VSMainMenu" id="Edit"/>
+      </Group>
+    </Groups>
+
+    <!--This section defines the elements the user can interact with, like a menu command or a button
+        or combo box in a toolbar. -->
+    <Buttons>
+      <Button guid="OpenInVim" id="OpenInVimCommand" priority="0x0100" type="Button">
+        <Parent guid="OpenInVim" id="OpenInVimMenuGroup" />
+		<Icon guid="ImageCatalogGuid" id="VBBlankApplication" />
+        <CommandFlag>IconIsMoniker</CommandFlag>
+        <Strings>
+          <ButtonText>Open In Vim</ButtonText>
+          <LocCanonicalName>.OpenInVim.Open</LocCanonicalName>
+        </Strings>
+      </Button>
+    </Buttons>
+  </Commands>
+
+	<KeyBindings>
+		<KeyBinding guid="OpenInVim" id="OpenInVimCommand" editor="guidVSStd97" mod1="Control Alt" key1="VK_OEM_COMMA" />
+	</KeyBindings>
+
+  <Symbols>
+    <GuidSymbol name="OpenInVim" value="{3a54b152-a55f-48c2-af2f-e40c25714014}">
+      <IDSymbol name="OpenInVimMenuGroup" value="0x0001" />
+      <IDSymbol name="OpenInVimCommand" value="0x0100" />
+    </GuidSymbol>
+  </Symbols>
+</CommandTable>
