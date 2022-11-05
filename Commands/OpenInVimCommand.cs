@@ -1,8 +1,14 @@
-﻿using System;
+﻿
+using System;
+using System.Diagnostics;
 using System.IO;
+
 using Community.VisualStudio.Toolkit;
+
 using EnvDTE;
+
 using EnvDTE80;
+
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 
@@ -37,15 +43,31 @@ namespace OpenInVim
                 }
 
                 string args = settings.UserArguments;
-                if (args != null && args.Length > 0)
-                {
-                    args = $"\"{args.Replace("$line$", line.ToString()).Replace("$col$", col.ToString())}\"";
-                }
-
+                args = args.Replace("$line$", line.ToString()).Replace("$col$", col.ToString());
                 System.Diagnostics.Process process = new();
                 process.StartInfo.FileName = path; // @"C:\Tools\Neovim5\bin\nvim-qt.exe";
                                                    //process.StartInfo.Arguments = $"\"+call cursor({line},{col})\" \"{doc.FilePath}\"";
-                process.StartInfo.Arguments = $"{args} \"{doc.FilePath}\"";
+
+
+
+                if (settings.SameWindow)
+                {
+                    if (settings.NewTab)
+                    {
+
+                        process.StartInfo.Arguments = $"--remote-tab \"{args}\" \"{doc.FilePath}\"";
+                    }
+                    else
+                    {
+                        process.StartInfo.Arguments = $"--remote \"{args}\" \"{doc.FilePath}\"";
+                    }
+                }
+                else
+                {
+
+                    process.StartInfo.Arguments = $"\"{args}\" \"{doc.FilePath}\"";
+                }
+
                 process.StartInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Maximized;
                 process.Start();
             }
