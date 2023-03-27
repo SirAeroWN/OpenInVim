@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="OpenInVim.f9ec1140-9c52-4362-b8e1-2afdcd99a7ef" Version="1.0" Language="en-US" Publisher="Will Norvelle" />
+        <Identity Id="OpenInVim.f9ec1140-9c52-4362-b8e1-2afdcd99a7ef" Version="2.0" Language="en-US" Publisher="Will Norvelle" />
         <DisplayName>Open In Vim</DisplayName>
         <Description xml:space="preserve">Open the current file in a graphical flavor of Vim</Description>
         <License>License.txt</License>

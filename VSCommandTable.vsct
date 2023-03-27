@@ -18,8 +18,7 @@
     <Buttons>
       <Button guid="OpenInVim" id="OpenInVimCommand" priority="0x0100" type="Button">
         <Parent guid="OpenInVim" id="OpenInVimMenuGroup" />
-		<Icon guid="ImageCatalogGuid" id="VBBlankApplication" />
-        <CommandFlag>IconIsMoniker</CommandFlag>
+        <Icon guid="ImageCatalogGuid" id="VBBlankApplication" />
         <Strings>
           <ButtonText>Open In Vim</ButtonText>
           <LocCanonicalName>.OpenInVim.Open</LocCanonicalName>
@@ -27,6 +26,24 @@
       </Button>
     </Buttons>
   </Commands>
+
+  <CommandPlacements>
+    <!-- Puts the OpenInVim menu into the Editor context menu (specifically grouped with the Copy/Paste/etc commands) -->
+    <CommandPlacement guid="OpenInVim" id="OpenInVimCommand" priority="0x1100">
+      <Parent guid="guidSHLMainMenu" id="IDG_VS_CODEWIN_TEXTEDIT" />
+    </CommandPlacement>
+
+    <!-- Puts the OpenInVim menu into the Solution Explorer context menu at the project, folder, and item levels  -->
+    <CommandPlacement guid="OpenInVim" id="OpenInVimCommand" priority="0x1100">
+      <Parent guid="guidSHLMainMenu" id="IDG_VS_CTXT_PROJECT_TRANSFER" />
+    </CommandPlacement>
+    <CommandPlacement guid="OpenInVim" id="OpenInVimCommand" priority="0x1100">
+      <Parent guid="guidSHLMainMenu" id="IDG_VS_CTXT_FOLDER_TRANSFER" />
+    </CommandPlacement>
+    <CommandPlacement guid="OpenInVim" id="OpenInVimCommand" priority="0x1100">
+      <Parent guid="guidSHLMainMenu" id="IDG_VS_CTXT_ITEM_TRANSFER" />
+    </CommandPlacement>
+  </CommandPlacements>
 
 	<KeyBindings>
 		<KeyBinding guid="OpenInVim" id="OpenInVimCommand" editor="guidVSStd97" mod1="Control Alt" key1="VK_OEM_COMMA" />

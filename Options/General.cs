@@ -15,7 +15,7 @@ namespace OpenInVim
     {
         [Category("Options")]
         [DisplayName("Absolute path to Vim")]
-        [Description("An absolute path the the Vim executable you want to launch.")]
+        [Description("An absolute path the Vim executable you want to launch.")]
         public string PathToVim {  get; set; }
 
         [Category("Options")]
